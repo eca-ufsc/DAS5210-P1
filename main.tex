@@ -9,7 +9,6 @@
 \setlength{\parindent}{4em}
 
 \begin{document}
-\begin{header_}
 % ========== Edit your name here
 \author{
 José Fernando Rosa Ribeiro
@@ -21,26 +20,28 @@ José Fernando Rosa Ribeiro
 \date{\vspace{-5ex}}}
 \maketitle
 \setcounter{secnumdepth}{0}
-\end{header_}
 
 \section{Questão 1}
 Monte o diagrama do sistema real (não-linear) em malha aberta usando o pacote Simulink, do
 Matlab. Em seguida, simule este modelo, considerando o ponto de operação com i = 7:2mA. Para
-tal simulação, varie em até 1 V o sinal u(t). Também simule o comportamento do sistema para
-diferentes variações de tração de carga q(t), em até 5 N.m.
+tal simulação, varie em até 1 V o sinal u(t). Também simule o comportamento do sistema para
+diferentes variações de tração de carga q(t), em até 5 N.m.
 
      \begin{figure}[!htb]
         \center{\includegraphics[width=\textwidth]
-        {nao-linearizado.jpg}}
+        {assets/q1_non_linearized_schema.jpg}}
         \caption{\label{fig:my-label} Diagrama do sistema não-linearizado no Simulink.}
       \end{figure}
+      
+      
 \section{Questão 2}
-Monte o sistema linearizado completo em malha-aberta, no Simulink, do Matlab.
+
      \begin{figure}[!htb]
         \center{\includegraphics[width=\textwidth]
-        {linearizado.jpg}}
+        {q2_linearized_schema.jpg}}
         \caption{\label{fig:my-label} Diagrama do sistema linearizado.}
       \end{figure}
+      
 \section{Questão 3}
 Usando Simulink, estude por simulação o comportamento deste sistema e compare o comportamento
 com o do sistema não-linear nas proximidades do ponto de equilibrio estudado. Use os mesmos ensaios
@@ -67,23 +68,24 @@ elseif u<=lower_bound
 end
 y2 = active;
 \end{lstlisting}
+
 \begin{figure}[!htb]
         \center{\includegraphics[width=\textwidth]
-        {questao4/control_schema.jpg}}
+        {assets/q4_ab_control_schema.jpg}}
         \caption{\label{fig:my-label} Esquema da planta no Simulink.}
       \end{figure}
 
 \subsection{Item a}
 \begin{figure}[!htb]
         \center{\includegraphics[width=\textwidth]
-        {questao4/item_a/q_1.png}}
+        {assets/q4_a_plot.png}}
         \caption{\label{fig:my-label} Gráfico de u(t) (em vermelho) e $\omega(t)$ (em azul), variáveis manipulada e controlada da planta, respectivamente, para $Q(t) = 1 N.m$}
       \end{figure}
       
 \subsection{Item b}
 \begin{figure}[!htb]
         \center{\includegraphics[width=\textwidth]
-        {questao4/item_b/q_5.png}}
+        {assets/q4_b_plot.png}}
         \caption{\label{fig:my-label} Gráfico de u(t) (em vermelho) e $\omega(t)$ (em azul), variáveis manipulada e controlada da planta, respectivamente, para $Q(t) = 5 N.m$}
       \end{figure}
 
@@ -91,13 +93,13 @@ y2 = active;
 
 \begin{figure}[!htb]
         \center{\includegraphics[width=\textwidth]
-        {questao4/item_c/control_schema.png}}
+        {assets/q4_c_control_schema.jpg}}
         \caption{\label{fig:my-label} Gráfico de u(t) (em vermelho) e $\omega(t)$ (em azul), variáveis manipulada e controlada da planta, respectivamente, para $Q(t) = 5 N.m$}
       \end{figure}
     
 \begin{figure}[!htb]
         \center{\includegraphics[width=\textwidth]
-        {questao4/item_c/control_schema.png}}
+        {assets/q4_c_plot.png}}
         \caption{\label{fig:my-label} Gráfico de u(t) (em vermelho) e $\omega(t)$ (em azul), variáveis manipulada e controlada da planta, respectivamente, para $Q(t) = 5 N.m$}
       \end{figure}
 
@@ -112,4 +114,3 @@ possível, com esta estratégia, garantir o seguimento de referências de veloci
 Compare a estratégia de controle acima com a estratégia On-Off e avalia as capacidades de ambas
 em termos de seguimento de referência e rejeição de perturbações q(t) do tipo degrau.
 \end{document}
-
