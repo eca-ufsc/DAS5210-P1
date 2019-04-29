@@ -1,0 +1,115 @@
+\documentclass[11pt]{article}
+\usepackage[brazilian]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{enumitem}
+\usepackage{pgfplots}
+\usepackage{graphicx} 
+\pgfplotsset{width=10cm, compat=1.9}
+\usepackage[framed,numbered,autolinebreaks,useliterate]{mcode}
+\setlength{\parindent}{4em}
+
+\begin{document}
+\begin{header_}
+% ========== Edit your name here
+\author{
+José Fernando Rosa Ribeiro
+}
+\title{DAS5210 - Introdução ao Controle de Processos 
+\newline
+\newline
+\large Prova 1
+\date{\vspace{-5ex}}}
+\maketitle
+\setcounter{secnumdepth}{0}
+\end{header_}
+
+\section{Questão 1}
+Monte o diagrama do sistema real (não-linear) em malha aberta usando o pacote Simulink, do
+Matlab. Em seguida, simule este modelo, considerando o ponto de operação com i = 7:2mA. Para
+tal simulação, varie em até 1 V o sinal u(t). Também simule o comportamento do sistema para
+diferentes variações de tração de carga q(t), em até 5 N.m.
+
+     \begin{figure}[!htb]
+        \center{\includegraphics[width=\textwidth]
+        {nao-linearizado.jpg}}
+        \caption{\label{fig:my-label} Diagrama do sistema não-linearizado no Simulink.}
+      \end{figure}
+\section{Questão 2}
+Monte o sistema linearizado completo em malha-aberta, no Simulink, do Matlab.
+     \begin{figure}[!htb]
+        \center{\includegraphics[width=\textwidth]
+        {linearizado.jpg}}
+        \caption{\label{fig:my-label} Diagrama do sistema linearizado.}
+      \end{figure}
+\section{Questão 3}
+Usando Simulink, estude por simulação o comportamento deste sistema e compare o comportamento
+com o do sistema não-linear nas proximidades do ponto de equilibrio estudado. Use os mesmos ensaios
+do item 1.
+
+\section{Questão 4}
+\subsection{Itens a e b}
+\begin{lstlisting}[caption={Código usado para controlar a planta},captionpos=b]
+function [y1, y2]= fcn(u, m)
+
+lower_bound = 5;
+upper_bound = 15;
+active = m;
+if active
+    y1 = 5;
+else
+    y1 = 1;
+end
+
+if u>=upper_bound
+    active = 0;
+elseif u<=lower_bound
+    active = 1;
+end
+y2 = active;
+\end{lstlisting}
+\begin{figure}[!htb]
+        \center{\includegraphics[width=\textwidth]
+        {questao4/control_schema.jpg}}
+        \caption{\label{fig:my-label} Esquema da planta no Simulink.}
+      \end{figure}
+
+\subsection{Item a}
+\begin{figure}[!htb]
+        \center{\includegraphics[width=\textwidth]
+        {questao4/item_a/q_1.png}}
+        \caption{\label{fig:my-label} Gráfico de u(t) (em vermelho) e $\omega(t)$ (em azul), variáveis manipulada e controlada da planta, respectivamente, para $Q(t) = 1 N.m$}
+      \end{figure}
+      
+\subsection{Item b}
+\begin{figure}[!htb]
+        \center{\includegraphics[width=\textwidth]
+        {questao4/item_b/q_5.png}}
+        \caption{\label{fig:my-label} Gráfico de u(t) (em vermelho) e $\omega(t)$ (em azul), variáveis manipulada e controlada da planta, respectivamente, para $Q(t) = 5 N.m$}
+      \end{figure}
+
+\subsection{Item c}
+
+\begin{figure}[!htb]
+        \center{\includegraphics[width=\textwidth]
+        {questao4/item_c/control_schema.png}}
+        \caption{\label{fig:my-label} Gráfico de u(t) (em vermelho) e $\omega(t)$ (em azul), variáveis manipulada e controlada da planta, respectivamente, para $Q(t) = 5 N.m$}
+      \end{figure}
+    
+\begin{figure}[!htb]
+        \center{\includegraphics[width=\textwidth]
+        {questao4/item_c/control_schema.png}}
+        \caption{\label{fig:my-label} Gráfico de u(t) (em vermelho) e $\omega(t)$ (em azul), variáveis manipulada e controlada da planta, respectivamente, para $Q(t) = 5 N.m$}
+      \end{figure}
+
+
+\section{Questão 5}
+Pretende-se "controlar” o sistema de velocidade do motor em malha-aberta, usando uma lei de
+controle do tipo u(t) = KMAr(t), sendo r(t) uma referência de velocidade do tipo degrau. Ajuste o
+ganho KMA e analise separamente as respostas temporais i(t) (considere variações do tipo degrau). É
+possível, com esta estratégia, garantir o seguimento de referências de velocidade r(t) do tipo degrau
+?
+\section{Questão 6}
+Compare a estratégia de controle acima com a estratégia On-Off e avalia as capacidades de ambas
+em termos de seguimento de referência e rejeição de perturbações q(t) do tipo degrau.
+\end{document}
+
