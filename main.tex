@@ -11,37 +11,49 @@
 \begin{document}
 % ========== Edit your name here
 \author{
-José Fernando Rosa Ribeiro
+	José Fernando Rosa Ribeiro
 }
-\title{DAS5210 - Introdução ao Controle de Processos 
-\newline
-\newline
-\large Prova 1
-\date{\vspace{-5ex}}}
+\title{DAS5210 - Introdução ao Controle de Processos
+	\newline
+	\newline
+	\large Prova 1
+	\date{\vspace{-5ex}}}
 \maketitle
 \setcounter{secnumdepth}{0}
 
 \section{Questão 1}
-Monte o diagrama do sistema real (não-linear) em malha aberta usando o pacote Simulink, do
-Matlab. Em seguida, simule este modelo, considerando o ponto de operação com i = 7:2mA. Para
-tal simulação, varie em até 1 V o sinal u(t). Também simule o comportamento do sistema para
-diferentes variações de tração de carga q(t), em até 5 N.m.
+\begin{figure}[!htb]
+	\center{\includegraphics[height=6cm]
+		{assets/q1_non_linearized_schema.jpg}}
+	\caption{Diagrama do sistema não-linearizado no Simulink.}
+\end{figure}
 
-     \begin{figure}[!htb]
-        \center{\includegraphics[width=\textwidth]
-        {assets/q1_non_linearized_schema.jpg}}
-        \caption{\label{fig:my-label} Diagrama do sistema não-linearizado no Simulink.}
-      \end{figure}
-      
-      
+\begin{figure}[!htb]
+	\center{\includegraphics[height=6cm]
+		{assets/q1_u(t)_3_q(t)_0to5.png}}
+	\caption{Gráfico da variação de $\omega(t)$ com u(t)=5 e degrau q(t-1)=5}
+\end{figure}
+
+\begin{figure}[!htb]
+	\center{\includegraphics[height=6cm]
+		{assets/q1_u(t)_3to4_q(t)_0.png}}
+	\caption{ Gráfico da variação de $\omega(t)$ com degrau u(t-1)=3 a 4 e q(t)=0}
+\end{figure}
+
+\begin{figure}[!htb]
+	\center{\includegraphics[height=6cm]
+		{assets/q1_u(t)_4to5_q(t)_5.png}}
+	\caption{ Gráfico da variação de $\omega(t)$ com u(t-1)=4 a 5 e q(t)=5}
+\end{figure}
+
 \section{Questão 2}
 
-     \begin{figure}[!htb]
-        \center{\includegraphics[width=\textwidth]
-        {q2_linearized_schema.jpg}}
-        \caption{\label{fig:my-label} Diagrama do sistema linearizado.}
-      \end{figure}
-      
+\begin{figure}[!htb]
+	\center{\includegraphics[height=6cm]
+		{assets/q2_linearized_schema.jpg}}
+	\caption{Diagrama do sistema linearizado.}
+\end{figure}
+
 \section{Questão 3}
 Usando Simulink, estude por simulação o comportamento deste sistema e compare o comportamento
 com o do sistema não-linear nas proximidades do ponto de equilibrio estudado. Use os mesmos ensaios
@@ -70,38 +82,38 @@ y2 = active;
 \end{lstlisting}
 
 \begin{figure}[!htb]
-        \center{\includegraphics[width=\textwidth]
-        {assets/q4_ab_control_schema.jpg}}
-        \caption{\label{fig:my-label} Esquema da planta no Simulink.}
-      \end{figure}
+	\center{\includegraphics[height=6cm]
+		{assets/q4_ab_control_schema.jpg}}
+	\caption{Esquema da planta no Simulink.}
+\end{figure}
 
 \subsection{Item a}
 \begin{figure}[!htb]
-        \center{\includegraphics[width=\textwidth]
-        {assets/q4_a_plot.png}}
-        \caption{\label{fig:my-label} Gráfico de u(t) (em vermelho) e $\omega(t)$ (em azul), variáveis manipulada e controlada da planta, respectivamente, para $Q(t) = 1 N.m$}
-      \end{figure}
-      
+	\center{\includegraphics[height=6cm]
+		{assets/q4_a_plot.png}}
+	\caption{Gráfico de u(t) (em vermelho) e $\omega(t)$ (em azul), variáveis manipulada e controlada da planta, respectivamente, para $Q(t) = 1 N.m$}
+\end{figure}
+
 \subsection{Item b}
 \begin{figure}[!htb]
-        \center{\includegraphics[width=\textwidth]
-        {assets/q4_b_plot.png}}
-        \caption{\label{fig:my-label} Gráfico de u(t) (em vermelho) e $\omega(t)$ (em azul), variáveis manipulada e controlada da planta, respectivamente, para $Q(t) = 5 N.m$}
-      \end{figure}
+	\center{\includegraphics[height=6cm]
+		{assets/q4_b_plot.png}}
+	\caption{Gráfico de u(t) (em vermelho) e $\omega(t)$ (em azul), variáveis manipulada e controlada da planta, respectivamente, para $Q(t) = 5 N.m$}
+\end{figure}
 
 \subsection{Item c}
 
 \begin{figure}[!htb]
-        \center{\includegraphics[width=\textwidth]
-        {assets/q4_c_control_schema.jpg}}
-        \caption{\label{fig:my-label} Gráfico de u(t) (em vermelho) e $\omega(t)$ (em azul), variáveis manipulada e controlada da planta, respectivamente, para $Q(t) = 5 N.m$}
-      \end{figure}
-    
+	\center{\includegraphics[height=6cm]
+		{assets/q4_c_control_schema.jpg}}
+	\caption{Gráfico de u(t) (em vermelho) e $\omega(t)$ (em azul), variáveis manipulada e controlada da planta, respectivamente, para $Q(t) = 5 N.m$}
+\end{figure}
+
 \begin{figure}[!htb]
-        \center{\includegraphics[width=\textwidth]
-        {assets/q4_c_plot.png}}
-        \caption{\label{fig:my-label} Gráfico de u(t) (em vermelho) e $\omega(t)$ (em azul), variáveis manipulada e controlada da planta, respectivamente, para $Q(t) = 5 N.m$}
-      \end{figure}
+	\center{\includegraphics[height=6cm]
+		{assets/q4_c_plot.png}}
+	\caption{Gráfico de u(t) (em vermelho) e $\omega(t)$ (em azul), variáveis manipulada e controlada da planta, respectivamente, para $Q(t) = 5 N.m$}
+\end{figure}
 
 
 \section{Questão 5}
